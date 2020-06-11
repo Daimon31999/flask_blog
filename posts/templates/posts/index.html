@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Blueprint Index Page 
+{% endblock  %}
+
+{% block content_title %}
+    Posts
+{% endblock  %}
+
+{% block content %}
+    <br>
+    <br>
+    <ul>
+        {% for post in posts  %}
+            <li>
+                                                                <!-- slug(url_for), post из for -->
+                <b>Title => </b><a href="{{ url_for('posts.post_detail', slug=post.slug) }}">{{post.title}}</a><b> Date => </b>{{ post.created}} 
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock  %}
